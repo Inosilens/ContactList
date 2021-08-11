@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { changeModActiveAction } from "../../reducer/contactListReducer";
 import ChangePerson from "../changePerson/changePerson";
-import "./contactInfo.css"
+import "./contactInfo.css";
 
 export const ContactInfo = () => {
   const person = useSelector((state) => state.contacts.getMoreInfo);
@@ -26,7 +26,9 @@ export const ContactInfo = () => {
         <h3>{address.city}</h3>
         <h3>{phone}</h3>
         <h3> {website} </h3>
-        <button className="btn btn-secondary mt-3" onClick={openChangeWindow}>Change Person</button>
+        <button className="btn btn-secondary mt-3" onClick={openChangeWindow}>
+          Change Person
+        </button>
         <Link to="/list">
           <button className="btn btn-primary mt-3">Back to list</button>
         </Link>

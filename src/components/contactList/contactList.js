@@ -5,8 +5,7 @@ import {
   getContactAction,
   getMoreInfoAction,
 } from "../../reducer/contactListReducer";
-import "./contacList.css"
-
+import "./contacList.css";
 
 import { Link } from "react-router-dom";
 
@@ -28,11 +27,11 @@ export const ContactList = () => {
       const localList = JSON.parse(localStorage.getItem("my_contacts"));
       dispatch(getContactAction(localList));
     }
-  }, []);
+  }, []); // use fetch for get data and push data in list
 
   const getMoreInfo = (person, index) => {
     dispatch(getMoreInfoAction(person, index));
-  };
+  }; //add person in array and open new window
 
   return (
     <div className=" contactList flex-wrap p-5 container d-flex flex-row justify-content-center align-items-center">
@@ -41,7 +40,10 @@ export const ContactList = () => {
           <h3>{person.name} </h3>
           <h6>User name : {person.username}</h6>
           <Link to="/info">
-            <button className="btn btn-primary" onClick={() => getMoreInfo(person, index)}>
+            <button
+              className="btn btn-primary"
+              onClick={() => getMoreInfo(person, index)}
+            >
               More info
             </button>
           </Link>
