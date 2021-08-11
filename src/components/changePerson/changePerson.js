@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     changeModActiveAction, getContactAction,
     getNewListAction,
-} from "../reducer/contactListReducer";
+} from "../../reducer/contactListReducer";
 import { Link } from "react-router-dom";
+import "./changePerson.css"
 
 export const ChangePerson = () => {
   const person = useSelector((state) => state.contacts.getMoreInfo);
@@ -29,15 +30,15 @@ export const ChangePerson = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={(e) => changeInfo(e, parameters)}>
+    <div className=" pt-5 mt-5  container ">
+      <form className="changeCart form-group p-5 d-flex flex-column justify-content-center align-items-center" onSubmit={(e) => changeInfo(e, parameters)}>
         <input defaultValue={parameters.name} name="name" type="text" />
         <input defaultValue={parameters.email} name="email" type="text" />
         <input defaultValue={parameters.phone} name="phone" type="text" />
         <input defaultValue={parameters.website} name="website" type="text" />
-        <button type="submit">Save change</button>
+        <button className="mt-3 btn btn-secondary" type="submit">Save change</button>
           <Link to="/list">
-             <button onClick={closeChangeMode}>Back to list</button>
+             <button className="mt-3  btn btn-primary" onClick={closeChangeMode}>Back to list</button>
           </Link>
 
       </form>

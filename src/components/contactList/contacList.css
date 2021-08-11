@@ -1,0 +1,6 @@
+.contactList__container {
+    max-width: 300px;
+    width: 100%;
+    border: 2px solid rgba(55, 55, 232, 0.71);
+    border-radius: 15px;
+}

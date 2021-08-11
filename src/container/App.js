@@ -1,12 +1,12 @@
-import "bootstrap"
+import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
 import {store} from "../store";
 import {Provider} from "react-redux";
 import {Redirect, Route} from "react-router";
-import {ContactList} from "../components/contactList";
+import {ContactList} from "../components/contactList/contactList";
 import {BrowserRouter} from "react-router-dom";
-import {ContactInfo} from "../components/contactInfo";
-import ChangePerson from "../components/changePerson";
+import {ContactInfo} from "../components/contactListInfo/contactInfo";
+import ChangePerson from "../components/changePerson/changePerson";
 
 function App() {
 

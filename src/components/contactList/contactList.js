@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { getContactList } from "../services/getContactList";
+import { getContactList } from "../../services/getContactList";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getContactAction,
   getMoreInfoAction,
-} from "../reducer/contactListReducer";
+} from "../../reducer/contactListReducer";
+import "./contacList.css"
+
 
 import { Link } from "react-router-dom";
 
@@ -20,7 +22,7 @@ export const ContactList = () => {
           localStorage.setItem("my_contacts", JSON.stringify(contacts))
         )
         .catch((error) => {
-          console.log("Failed load");
+          alert("Failed load");
           console.log(error);
         });
       const localList = JSON.parse(localStorage.getItem("my_contacts"));
@@ -33,13 +35,13 @@ export const ContactList = () => {
   };
 
   return (
-    <div>
+    <div className=" contactList flex-wrap p-5 container d-flex flex-row justify-content-center align-items-center">
       {list.map((person, index) => (
-        <div key={index}>
-          <h1>{person.name} </h1>
-          <h2>{person.username}</h2>
+        <div className="contactList__container p-3 m-3" key={index}>
+          <h3>{person.name} </h3>
+          <h6>User name : {person.username}</h6>
           <Link to="/info">
-            <button onClick={() => getMoreInfo(person, index)}>
+            <button className="btn btn-primary" onClick={() => getMoreInfo(person, index)}>
               More info
             </button>
           </Link>
